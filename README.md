@@ -1,13 +1,13 @@
 # Handwritten Digit Recognition
 
-A complete neural network-based solution for handwritten digit recognition using TensorFlow and Streamlit. The project includes both the training pipeline and an interactive web application for real-time digit recognition.
+A neural network-based solution for handwritten digit recognition using TensorFlow and Streamlit. The project includes both the training pipeline and an interactive web application for recognizing uploaded MNIST-format digit images.
 
 ## 🌟 Features
 
-- **GPU-Accelerated CNN Model**: Convolutional Neural Network optimized for GPU training
-- **Interactive Web UI**: Draw or upload digits for instant recognition
+- **CNN Model**: Convolutional Neural Network optimized for digit recognition
+- **Upload Interface**: Upload MNIST-format images for instant recognition
 - **High Accuracy**: ~99.3% test accuracy on the MNIST dataset
-- **Real-time Visualization**: See confidence scores and probability distributions
+- **Visualization**: See confidence scores and probability distributions
 - **Data Augmentation**: Improved model generalization through augmentation techniques
 
 ## 📋 Project Structure
@@ -17,7 +17,6 @@ mnist-digit-recognition/
 ├── models/                   # Directory for saved models
 │   └── mnist_cnn_best.h5     # Best model checkpoint during training
 ├── mnist_cnn_model.h5        # Final trained model
-├── mnist_cnn_model.tflite    # TensorFlow Lite model for mobile/embedded
 ├── train_model.py            # CNN training script
 ├── app.py                    # Streamlit web application
 └── README.md                 # Project documentation
@@ -65,7 +64,6 @@ The CNN architecture consists of:
    scikit-learn>=1.0.0
    streamlit>=1.18.0
    pillow>=9.0.0
-   streamlit-drawable-canvas>=0.9.0
    ```
 
 ## 🚀 Usage
@@ -81,9 +79,9 @@ python train_model.py
 This script will:
 - Download the MNIST dataset
 - Preprocess the data
-- Train the CNN model with GPU acceleration (if available)
+- Train the CNN model
 - Evaluate model performance
-- Save the trained model as `mnist_cnn_model.h5` and a TFLite version
+- Save the trained model as `mnist_cnn_model.h5`
 
 ### Running the Web Application
 
@@ -93,9 +91,8 @@ Launch the Streamlit application:
 streamlit run app.py
 ```
 
-The application provides two main functionalities:
-1. **Draw Digit**: Draw a digit on the canvas and predict
-2. **Upload Image**: Upload an image containing a handwritten digit
+The application provides the following functionality:
+- **Upload Image**: Upload an image containing a handwritten digit in MNIST format (28x28 pixels, grayscale)
 
 ## 📊 Performance
 
@@ -104,34 +101,20 @@ The model achieves excellent performance on the MNIST dataset:
 - Validation accuracy: ~99.4%
 - Test accuracy: ~99.3%
 
-## 🖥️ GPU Acceleration
-
-The training script includes optimizations for GPU acceleration:
-- Automatic GPU detection and configuration
-- Memory growth settings to optimize GPU memory usage
-- Mixed precision training for compatible GPUs
-- TensorFlow data pipeline optimizations with prefetching
-
 ## 🌐 Web Application Details
 
 The Streamlit web application offers a user-friendly interface with:
 
-- **Drawing Canvas**: Draw digits directly in the browser
-- **Image Upload**: Test with existing images of handwritten digits
+- **Image Upload**: Test with existing images of handwritten digits in MNIST format
 - **Preprocessing Visualization**: See how images are processed before prediction
 - **Confidence Scores**: Visualize model's confidence for each digit class
 - **Top Predictions**: View top 3 most likely digits and their probabilities
-
-## 📷 Screenshots
-
-[Screenshots of the application would be placed here]
 
 ## 🔍 Future Improvements
 
 - Implement batch prediction for multiple digits
 - Add model interpretability tools (like Grad-CAM)
 - Support for handwritten character recognition beyond digits
-- Mobile deployment using TensorFlow Lite
 
 ## 📄 License
 
